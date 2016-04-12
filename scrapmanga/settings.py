@@ -8,14 +8,19 @@
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
+import os
 
-BOT_NAME = 'scrapmangaku'
+_basedir = os.path.abspath(os.path.dirname(__file__))
+files_path = os.path.join(_basedir, 'files')
 
-SPIDER_MODULES = ['scrapmangaku.spiders']
-NEWSPIDER_MODULE = 'scrapmangaku.spiders'
-ITEM_PIPELINES = ['scrapmangaku.pipelines.MyImagesPipeline']
-FILES_STORE = ''
-IMAGES_STORE = ''
+BOT_NAME = 'scrapmanga'
+
+SPIDER_MODULES = ['scrapmanga.spiders']
+NEWSPIDER_MODULE = 'scrapmanga.spiders'
+ITEM_PIPELINES = ['scrapmanga.pipelines.MyImagesPipeline']
+
+FILES_STORE = files_path
+IMAGES_STORE = files_path
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
